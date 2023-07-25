@@ -64,24 +64,34 @@ function computeWinner(computerChoice,userChoice) {
 }
 
 function updateScore(){
-    playerScore.textContent = (`The player score is ${USER_SCORE}`);
-    compScore.textContent = (`The computer score is ${COMP_SCORE}`);
+    playerScore.textContent = (`The player score is ${USER_SCORE}.`);
+    compScore.textContent = (`The computer score is ${COMP_SCORE}.`);
 }
 
 const resultContainer = document.querySelector('.result-container');
 
 const playerScore = document.createElement('p');
 playerScore.classList.add('playerScore');
-playerScore.textContent = (`The player score is ${USER_SCORE}`);
+playerScore.textContent = (`The player score is ${USER_SCORE}.`);
 resultContainer.appendChild(playerScore);
 
 const compScore = document.createElement('p');
 compScore.classList.add('compScore');
-compScore.textContent = (`The computer score is ${COMP_SCORE}`);
+compScore.textContent = (`The computer score is ${COMP_SCORE}.`);
 resultContainer.appendChild(compScore);
-
 
 const results = document.createElement('p');
 results.classList.add('results');
 results.textContent = ("Goodluck!");
 resultContainer.appendChild(results);
+
+const allButtons = document.querySelectorAll('button');
+
+allButtons.forEach(button => {
+    button.addEventListener("mouseover", () =>{
+        button.classList.add("overButton")
+    });
+    button.addEventListener("mouseout", () =>{
+        button.classList.remove("overButton")
+    })
+});
